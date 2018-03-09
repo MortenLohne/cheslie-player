@@ -1,7 +1,9 @@
 var Chess = require('./modules/chess-extended.js').Chess;
+var decender = require('./sample-players/decender.js');
+var minmaxer = require('./sample-players/minmaxer.js');
 
 // Feel free to give your AI a more personal name
-exports.name = 'Tørrfisk - ' + Math.floor(Math.random() * 1000);
+exports.name = 'Morten - ' + Math.floor(Math.random() * 1000);
 
 /*
  * This is where you make your move.
@@ -9,12 +11,7 @@ exports.name = 'Tørrfisk - ' + Math.floor(Math.random() * 1000);
  * Don't worry to much about FEN and SAN, chess.js can handle all the details :-)
  */
 exports.move = function (board) {
-	// Make a new chess.js object from the FEN-board
-    var chess = new Chess(board),
-        moves = chess.moves(), // Get all legal moves
-        move = moves[Math.floor(Math.random() * moves.length)];
-
-    return move;
+    return decender.move(board);
 };
 
 /*
